@@ -1,0 +1,40 @@
+index.html.
+
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nekulimoobot AI</title>
+<style>
+body{background:#101522;color:white;font-family:Arial;text-align:center;padding:25px}
+h1{color:#55d6be}
+#chat{max-width:500px;margin:auto}
+input{width:70%;padding:14px;border-radius:10px;border:0}
+button{padding:14px;background:#55d6be;border:0;border-radius:10px}
+#messages{margin:25px 0;text-align:left}
+</style>
+</head>
+<body>
+<h1>🤖 Nekulimoobot AI</h1>
+<p>Καλώς ήρθες! Γράψε ένα μήνυμα.</p>
+<div id="chat">
+<div id="messages"></div>
+<input id="msg" placeholder="Γράψε κάτι...">
+<button onclick="send()">Send</button>
+</div>
+<script>
+function send(){
+const input=document.getElementById('msg');
+const messages=document.getElementById('messages');
+if(!input.value.trim())return;
+messages.innerHTML += '<p><b>Εσύ:</b> '+escapeHTML(input.value)+'</p>';
+messages.innerHTML += '<p><b>Nekulimoobot:</b> Η σύνδεση με το AI δεν έχει ρυθμιστεί ακόμα!</p>';
+input.value='';
+}
+function escapeHTML(s){
+return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+</script>
+</body>
+</html>
